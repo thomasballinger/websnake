@@ -51,7 +51,7 @@ var gameloop = function(){
   if (currentY < HEIGHT || currentX < WIDTH){
     snakeSegments.push([currentX, currentY + 1])
   }
-  printBoard()
+  printBoard();
 }
 
 var printBoard = function(){
@@ -69,32 +69,33 @@ var printBoard = function(){
     console.log(board[i]);
   }
 
-for (var i=0; i<HEIGHT; i++){
-  for (var j=0; j<WIDTH; j++){
-      if (board[i][j] === 0){
-          div = document.createElement('div');
-          div.style.backgroundColor = 'white';
-          div.style.borderColor = 'blue';
-          div.style.border = 'solid 1px';
-          div.style.height = '10px';
-          div.style.width = '10px';
-          div.style.float = 'left';
-      } else {
-          div = document.createElement('div');
-          div.style.backgroundColor = 'black';
-          div.style.borderColor = 'blue';
-          div.style.height = '10px';
-          div.style.width = '10px';
-          div.style.border = 'solid 1px';
-          div.style.float = 'left';
-          
-      }
   body = document.getElementsByTagName('body')[0];
-  body.appendChild(div)
+  body.innerHTML = '';
+  for (var i=0; i<HEIGHT; i++){
+    for (var j=0; j<WIDTH; j++){
+        if (board[i][j] === 0){
+            div = document.createElement('div');
+            div.style.backgroundColor = 'white';
+            div.style.borderColor = 'blue';
+            div.style.border = 'solid 1px';
+            div.style.height = '10px';
+            div.style.width = '10px';
+            div.style.float = 'left';
+        } else {
+            div = document.createElement('div');
+            div.style.backgroundColor = 'black';
+            div.style.borderColor = 'blue';
+            div.style.height = '10px';
+            div.style.width = '10px';
+            div.style.border = 'solid 1px';
+            div.style.float = 'left';
+            
+        }
+    body.appendChild(div)
+    }
+    body.appendChild(document.createElement('br'));
   }
-  body.appendChild(document.createElement('br'));
-}
-          
+            
           
 }
 
