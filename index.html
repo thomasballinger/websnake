@@ -1,5 +1,6 @@
 <html>
 <body>
+
 <div>
 
 </div>
@@ -21,6 +22,8 @@ var buildBoard = function(){
   return board;
 }
 
+
+
 //row, column
 var snakeSegments = [[3, 3], [4, 3]]
 
@@ -32,7 +35,7 @@ var gameloop = function(){
     board[row][col] = 'x';
   }
 
-  console.log('');
+ /* console.log('');
   console.log('');
   console.log('');
   console.log('');
@@ -45,9 +48,30 @@ var gameloop = function(){
   for (var i=0; i<HEIGHT; i++){
     console.log(board[i]);
   }
+*/
+
+for (var i=0; i<HEIGHT; i++){
+  for (var j=0; j<WIDTH; j++){
+      if (board[i][j] === 0){
+          div = document.createElement('div')
+          div.style.backgroundColor = 'white'
+          div.style.height = '10px'
+          div.style.width = '10px'
+      } else {
+          div = document.createElement('div')
+          div.style.backgroundColor = 'black'
+          div.style.height = '10px'
+          div.style.width = '10px'
+      }
+  }
+}
+          
+          
 }
 
 setInterval(gameloop, 333);
+    
+
 
 
 </script>
