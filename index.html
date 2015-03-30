@@ -21,15 +21,23 @@ var buildBoard = function(){
   return board;
 }
 
-//row, column
-var snakeSegments = [[3, 3], [4, 3]]
+var snakeSegments = [0, 0];
 
 var gameloop = function(){
+
+  //row, column
+ 
   board = buildBoard();
   for (var i=0; i<snakeSegments.length; i++){
     row = snakeSegments[i][0];
     col = snakeSegments[i][1];
     board[row][col] = 'x';
+  }
+
+  if snakeSegments[snakeSegments.length - 1][0] > WIDTH OR snakeSegments[snakeSegments.length - 1][1] > WIDTH{
+  	currentX = snakeSegments[snakeSegments.length - 1][0];
+  	currentY = snakeSegments[snakeSegments.length - 1][1];
+	snakeSegments.push([currentX + 1, currentY + 1])
   }
 
   console.log('');
