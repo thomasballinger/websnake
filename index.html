@@ -7,17 +7,48 @@
 
 var WIDTH = 20;
 var HEIGHT = 20;
-var board = [];
 
-for (var i=0; i<HEIGHT; i++){
-  var row = [];
-  for (var j=0; j<WIDTH; j++){
-    row.push(0);
+var buildBoard = function(){
+  var board = [];
+
+  for (var i=0; i<HEIGHT; i++){
+    var row = [];
+    for (var j=0; j<WIDTH; j++){
+      row.push(0);
+    }
+    board.push(row);
   }
-  board.push(row);
+  return board;
 }
 
-console.log(board);
+//row, column
+var snakeSegments = [[3, 3], [4, 3]]
+
+var gameloop = function(){
+  board = buildBoard();
+  for (var i=0; i<snakeSegments.length; i++){
+    row = snakeSegments[i][0];
+    col = snakeSegments[i][1];
+    board[row][col] = 'x';
+  }
+
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  console.log('');
+  for (var i=0; i<HEIGHT; i++){
+    console.log(board[i]);
+  }
+}
+
+setInterval(gameloop, 333);
+
 
 </script>
 </body>
