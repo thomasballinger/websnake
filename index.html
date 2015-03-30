@@ -21,8 +21,26 @@ var buildBoard = function(){
   return board;
 }
 
-//row, column
-var snakeSegments = [[3, 3], [4, 3]]
+var snakeSegments = [[0, 0]];
+
+var gameloop = function(){
+
+  //row, column
+ 
+  board = buildBoard();
+  for (var i=0; i<snakeSegments.length; i++){
+    row = snakeSegments[i][0];
+    col = snakeSegments[i][1];
+    board[row][col] = 'x';
+  }
+
+  var currentX = snakeSegments[snakeSegments.length - 1][0];
+  var currentY = snakeSegments[snakeSegments.length - 1][1];
+  if (currentY < HEIGHT || currentX < WIDTH){
+    snakeSegments.push([currentX, currentY + 1])
+  }
+  printBoard()
+}
 
 var printBoard = function(){
   console.log('');
@@ -40,16 +58,6 @@ var printBoard = function(){
   }
 }
 
-var gameloop = function(){
-  board = buildBoard();
-  for (var i=0; i<snakeSegments.length; i++){
-    row = snakeSegments[i][0];
-    col = snakeSegments[i][1];
-    board[row][col] = 'x';
-  }
-  printBoard()
-
-}
 setInterval(gameloop, 333);
 
 
