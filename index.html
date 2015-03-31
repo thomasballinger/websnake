@@ -57,7 +57,7 @@ var gameloop = function(){
 
   var currentX = snakeSegments[snakeSegments.length - 1][0];
   var currentY = snakeSegments[snakeSegments.length - 1][1];
-  if (currentY < HEIGHT || currentX < WIDTH){
+  if (currentY < HEIGHT && currentX < WIDTH){
     snakeSegments.push([currentX, currentY + 1])
   }
   printBoard();
